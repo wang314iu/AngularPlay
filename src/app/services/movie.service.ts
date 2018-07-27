@@ -33,6 +33,9 @@ export class MovieService {
 
   }
 
+  getAllMovies(): Observable<Movie[]> {
+    return this.apiService.getAll('/movies/');
+  }
   getMovieTrailers(id: number): Observable<Trailer[]> {
     return this.apiService.getAll(`${'/movies/videos/'}${id}`);
   }

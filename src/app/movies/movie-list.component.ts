@@ -15,7 +15,7 @@ export class MovieListComponent implements OnInit {
 
   ngOnInit() {
 
-    this.movieService.getTopMovies()
+    this.movieService.getAllMovies()
       .subscribe(
         m => {
           this.movies = m;
