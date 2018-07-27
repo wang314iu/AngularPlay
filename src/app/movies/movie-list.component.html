@@ -1,0 +1,24 @@
+<div class="container">
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Release Date</th>
+        <th>Overview</th>
+        <th>Average Vote</th>
+        <th>Revenue</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of movies">
+        <td>{{item.title}}</td>
+        <td>{{item.releaseDate}}</td>
+        <td>{{item.overview}}</td>
+        <td>{{item.averageVote}}</td>
+        <td>{{item.revenue}}</td>
+      </tr>
+
+    </tbody>
+  </table>
+</div>
