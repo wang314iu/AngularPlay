@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Movie } from '../shared/models/movie';
+import { MovieService } from '../services/movie.service';
 
 @Component({
   selector: 'app-home',
@@ -6,10 +8,18 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
+  movies: Movie[];
 
-  constructor() { }
+  constructor(private movieService: MovieService) { }
 
   ngOnInit() {
+    this.movieService.getNowPlayingMovies()
+      .subscribe(
+        m => {
+          this.movies = m;
+          // this.movies2 = m.slice(6, 12);
+        }
+      );
   }
 
 }

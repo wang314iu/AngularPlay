@@ -13,6 +13,7 @@ import { HomeComponent } from './home/home.component';
 import { NotFoundComponent } from './shared/components/not-found.component';
 import { HeaderComponent } from './shared/layout/header.component';
 import { GenreListComponent } from './genre/genre-list.component';
+import { LoginComponent } from './login/login.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { GenreListComponent } from './genre/genre-list.component';
     HomeComponent,
     NotFoundComponent,
     HeaderComponent,
-    GenreListComponent
+    GenreListComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
@@ -33,6 +35,8 @@ import { GenreListComponent } from './genre/genre-list.component';
       { path: '', component: HomeComponent },
       { path: 'movies', component: MovieListComponent },
       { path: 'movie/:id', component: MovieComponent },
+      { path: 'login', component: LoginComponent },
+      { path: 'genre/:id', component: MovieListComponent },
       { path: '**', component: NotFoundComponent }
     ])
 

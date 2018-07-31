@@ -1,9 +1,14 @@
-<div class="jumbotron">
-  <h1 class="display-3">Jumbo heading</h1>
-  <p class="lead">Jumbo helper text</p>
-  <hr class="my-2">
-  <p>More info</p>
-  <p class="lead">
-    <a class="btn btn-primary btn-lg" href="Jumbo action link" role="button">Jumbo action name</a>
-  </p>
-</div>
+<ngb-carousel>
+  <ng-template ngbSlide *ngFor="let movie of movies | slice:0:6">
+    <div class="container-fluid">
+      <a [routerLink]="['/movie/', movie.externalId ]">
+        <img src="{{movie.backdropUrl}}" class="carousel-img img-fluid" alt="{{movie.title}}">
+      </a>
+      <div class="carousel-caption">
+        <h3>{{movie.title}}</h3>
+        <p>{{movie.overview}}</p>
+      </div>
+
+    </div>
+  </ng-template>
+</ngb-carousel>
