@@ -26,7 +26,7 @@ import { HeaderComponent } from './shared/layout/header.component';
     FormsModule,
     HttpClientModule,
     RouterModule.forRoot([
-      { path: '', component: HomeComponent },
+      { path: '', component: MovieListComponent },
       { path: 'movies', component: MovieListComponent },
       { path: 'movie/:id', component: MovieComponent },
       { path: '**', component: NotFoundComponent }
