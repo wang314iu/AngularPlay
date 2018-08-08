@@ -30,26 +30,14 @@ export class LoginComponent implements OnInit {
       .subscribe((response) => {
 
         if (response) {
-          // this.token = response;
-          //  this.router.navigate(['/']);
-          // console.log(this.returnUrl);
           this.router.navigateByUrl(this.returnUrl);
-          // console.log(response);
-          // console.log(this.tokenResponse.access_token);
-        }
-
-        // tslint:disable-next-line:one-line
-        else {
+        } else {
           this.invalidLogin = true;
 
         }
 
       },
-        // (err: any) => console.log(err));
         (err: any) => this.invalidLogin = true);
 
-    // console.table(this.credentials);
-    // console.log(this.tokenResponse.access_token);
-    // console.table(this.tokenResponse);
   }
 }
