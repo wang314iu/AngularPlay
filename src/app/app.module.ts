@@ -69,8 +69,14 @@ export function tokenGetter() {
         path: 'admin/movie/:id', component: AdminMovieDetailsComponent,
         canActivate: [AuthenticationGuardService, AdminAuthenticationGuardService]
       },
-      { path: 'admin/movies', component: AdminMoviesComponent, canActivate: [AuthenticationGuardService, AdminAuthenticationGuardService] },
-      { path: 'admin/orders', component: AdminOrdersComponent, canActivate: [AuthenticationGuardService, AdminAuthenticationGuardService] },
+      {
+        path: 'admin/movies', component: AdminMoviesComponent,
+        canActivate: [AuthenticationGuardService, AdminAuthenticationGuardService]
+      },
+      {
+        path: 'admin/orders', component: AdminOrdersComponent, data: { expectedRole: ['superAdmin'] },
+        canActivate: [AuthenticationGuardService, AdminAuthenticationGuardService]
+      },
       { path: '**', component: NotFoundComponent }
     ])
 

@@ -47,7 +47,19 @@ export class AuthenticationService {
       // console.log(this.decodedToken());
       const roles = this.decodedToken().role;
       // console.log(roles);
-      return roles.includes('Admin');
+      if (roles) {
+        return roles.includes('Admin');
+      }
+
+    }
+  }
+  get isSuperAdmin() {
+    if (this.decodedToken() != null) {
+      const roles = this.decodedToken().role;
+      if (roles) {
+        return roles.includes('SuperAdmin');
+      }
+
     }
   }
 

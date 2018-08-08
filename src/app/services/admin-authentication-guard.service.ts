@@ -12,7 +12,9 @@ export class AdminAuthenticationGuardService implements CanActivate {
   }
 
   canActivate(route, state: RouterStateSnapshot) {
-    if (this.authenticationService.isAdmin) {
+    const expectedRole = route.data.expectedRole;
+    console.log(expectedRole);
+    if (this.authenticationService.isAdmin || this.authenticationService.isSuperAdmin) {
       return true;
     }
     this.router.navigate(['/login']);
