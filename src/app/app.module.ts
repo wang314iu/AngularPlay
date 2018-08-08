@@ -3,7 +3,7 @@ import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
-import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { JwtModule } from '@auth0/angular-jwt';
 
 import { AppComponent } from './app.component';
@@ -17,6 +17,11 @@ import { GenreListComponent } from './genre/genre-list.component';
 import { LoginComponent } from './login/login.component';
 import { AuthenticationGuardService } from './services/authentication-guard.service';
 import { MyMoviesComponent } from './movies/my-movies.component';
+import { AdminAuthenticationGuardService } from './services/admin-authentication-guard.service';
+import { MovieFormComponent } from './movies/movie-form.component';
+import { AdminMovieDetailsComponent } from './movies/admin-movie-details.component';
+import { AdminMoviesComponent } from './movies/admin-movies.component';
+import { AdminOrdersComponent } from './movies/admin-orders.component';
 
 export function tokenGetter() {
   return localStorage.getItem('token');
@@ -32,7 +37,11 @@ export function tokenGetter() {
     HeaderComponent,
     GenreListComponent,
     LoginComponent,
-    MyMoviesComponent
+    MyMoviesComponent,
+    MovieFormComponent,
+    AdminMovieDetailsComponent,
+    AdminMoviesComponent,
+    AdminOrdersComponent
   ],
   imports: [
     BrowserModule,
@@ -52,6 +61,16 @@ export function tokenGetter() {
       { path: 'login', component: LoginComponent },
       { path: 'genre/:id', component: MovieListComponent },
       { path: 'my/movies', component: MyMoviesComponent, canActivate: [AuthenticationGuardService] },
+      {
+        path: 'admin/movie/new', component: MovieFormComponent,
+        canActivate: [AuthenticationGuardService, AdminAuthenticationGuardService]
+      },
+      {
+        path: 'admin/movie/:id', component: AdminMovieDetailsComponent,
+        canActivate: [AuthenticationGuardService, AdminAuthenticationGuardService]
+      },
+      { path: 'admin/movies', component: AdminMoviesComponent, canActivate: [AuthenticationGuardService, AdminAuthenticationGuardService] },
+      { path: 'admin/orders', component: AdminOrdersComponent, canActivate: [AuthenticationGuardService, AdminAuthenticationGuardService] },
       { path: '**', component: NotFoundComponent }
     ])
 

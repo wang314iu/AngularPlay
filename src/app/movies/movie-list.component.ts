@@ -20,7 +20,7 @@ export class MovieListComponent implements OnInit {
 
     this.route.paramMap.subscribe(
       params => {
-        console.log(this.route.snapshot.url);
+        // console.log(this.route.snapshot.url);
         this.urlsegmant = this.route.snapshot.url[0].path;
         this.gid = +params.get('id');
 
@@ -37,7 +37,7 @@ export class MovieListComponent implements OnInit {
             .subscribe(
               m => {
                 this.movies = m;
-                console.log(this.movies);
+                // console.log(this.movies);
               }
             );
         }
