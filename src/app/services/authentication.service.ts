@@ -44,7 +44,9 @@ export class AuthenticationService {
 
   get isAdmin() {
     if (this.decodedToken() != null) {
+      // console.log(this.decodedToken());
       const roles = this.decodedToken().role;
+      // console.log(roles);
       return roles.includes('Admin');
     }
   }
