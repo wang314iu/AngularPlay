@@ -6,6 +6,7 @@ import { UserLogin } from '../shared/models/UserLogin';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { JwtHelperService } from '@auth0/angular-jwt';
+import { HttpHeaders } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
@@ -16,7 +17,10 @@ export class AuthenticationService {
   constructor(private apiService: ApiService, private jwtHelper: JwtHelperService, private jwtService: JwtService) { }
 
   login(userLogin: UserLogin): Observable<boolean> {
-    return this.apiService.create('/token', userLogin)
+    const options = {
+      headers: new HttpHeaders().set('Content-Type', 'application/json')
+    };
+    return this.apiService.create('/token', userLogin, options)
       .pipe(map(response => {
         if (response) {
           this.jwtService.saveToken(response);
@@ -59,7 +63,9 @@ export class AuthenticationService {
 
     // global function from jwt library that looks for local storage key with 'token' and retruns bool
     // below is the manual code
-    return this.jwtHelper.isTokenExpired(this.jwtService.getToken());
+    if (this.jwtHelper.isTokenExpired(this.jwtService.getToken())) {
+      return false;
+    } else { return true; }
 
   }
 }

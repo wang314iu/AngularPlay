@@ -30,8 +30,8 @@ export class ApiService {
       map(response => response), catchError(e => throwError(new Error('SOMETHING BAD HAPPENED')))
       );
   }
-  create(path: string, resource: Object = {}): Observable<any> {
-    return this.http.post(`${environment.api_url}${path}`, JSON.stringify(resource))
+  create(path: string, resource: Object = {}, options?): Observable<any> {
+    return this.http.post(`${environment.api_url}${path}`, JSON.stringify(resource), options)
       .pipe(map(response => response), catchError(e => throwError(new Error('SOMETHING BAD HAPPENED'))));
   }
   update(path: string, resource) {
