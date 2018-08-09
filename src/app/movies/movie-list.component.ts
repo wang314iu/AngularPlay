@@ -13,7 +13,7 @@ export class MovieListComponent implements OnInit {
   movies: Movie[];
   gid: number;
   urlsegmant: string;
-
+  highcolor = 'red';
   constructor(private movieService: MovieService, private route: ActivatedRoute) { }
 
   ngOnInit() {

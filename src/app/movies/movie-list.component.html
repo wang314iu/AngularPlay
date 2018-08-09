@@ -16,7 +16,9 @@
     <tbody>
       <tr *ngFor="let item of movies; let i=index">
         <td>{{i+1}}</td>
-        <td>{{item.title | uppercase}}</td>
+        <td>
+          <span [appHighlight]="highcolor">{{item.title | uppercase}}</span>
+        </td>
         <td>{{item.releaseDate | date:'short' }}</td>
         <td>{{item.overview}}</td>
         <td>

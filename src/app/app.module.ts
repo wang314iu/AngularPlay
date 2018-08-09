@@ -22,6 +22,7 @@ import { MovieFormComponent } from './movies/movie-form.component';
 import { AdminMovieDetailsComponent } from './movies/admin-movie-details.component';
 import { AdminMoviesComponent } from './movies/admin-movies.component';
 import { AdminOrdersComponent } from './movies/admin-orders.component';
+import { HighlightDirective } from './shared/directives/highlight.directive';
 
 export function tokenGetter() {
   return localStorage.getItem('token');
@@ -41,7 +42,8 @@ export function tokenGetter() {
     MovieFormComponent,
     AdminMovieDetailsComponent,
     AdminMoviesComponent,
-    AdminOrdersComponent
+    AdminOrdersComponent,
+    HighlightDirective
   ],
   imports: [
     BrowserModule,
