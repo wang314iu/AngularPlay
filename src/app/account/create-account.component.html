@@ -4,12 +4,10 @@
 
   <div class="form-group">
     <label for="InputEmail1">Email address</label>
-    <input type="email" class="form-control" id="InputEmail1" #email="ngModel" name="email" 
-    placeholder="Enter email" [(ngModel)]="userAccount.email"
+    <input type="email" class="form-control" id="InputEmail1" #email="ngModel" name="email" placeholder="Enter email" [(ngModel)]="userAccount.email"
       required email>
-   
-   
-      <div class="alert alert-danger" *ngIf="email.invalid && (email.dirty || email.touched)" >
+
+    <div class="alert alert-danger" *ngIf="email.invalid && (email.dirty || email.touched)">
       <div *ngIf="email.errors.required">
         Email is required
       </div>
@@ -23,16 +21,16 @@
 
   <div class="form-group">
     <label>First Name</label>
-    <input type="text" class="form-control" minlength="4" maxlength="10" #firstName="ngModel" name="firstName" [(ngModel)]="userAccount.firstName" placeholder="Enter first name"
-      required>
-      <div class="alert alert-danger" *ngIf="firstName?.invalid && (firstName?.dirty || firstName?.touched)" >
-        <div *ngIf="firstName?.errors?.required">
-          First Name is required
-        </div>
-        <div *ngIf="firstName?.errors?.minlength">
-          Title should be minumum {{title.errors.minlength.requiredLength}}
-        </div>
+    <input type="text" class="form-control" minlength="4" maxlength="10" #firstName="ngModel" name="firstName" [(ngModel)]="userAccount.firstName"
+      placeholder="Enter first name" required>
+    <div class="alert alert-danger" *ngIf="firstName?.invalid && (firstName?.dirty || firstName?.touched)">
+      <div *ngIf="firstName?.errors?.required">
+        First Name is required
       </div>
+      <div *ngIf="firstName?.errors?.minlength">
+        Title should be minumum {{title.errors.minlength.requiredLength}}
+      </div>
+    </div>
   </div>
   <div class="form-group">
     <label>Last Name</label>
@@ -45,12 +43,12 @@
   </div>
   <div class="form-group">
     <label>Re-Enter Password</label>
-    <input type="password" class="form-control" placeholder="Re-Enter Password" required>
+    <input type="password" class="form-control" placeholder="Re-Enter Password" name="reenterPassword" [(ngModel)]="userAccount.password" required>
   </div>
   <div class="form-group">
     <label>Enter Date Of Birth</label>
     <input type="date" class="form-control" name="dateofbirth" [(ngModel)]="userAccount.dateofbirth" placeholder="Enter date of Birth"
       required>
   </div>
-  <button type="submit" class="btn btn-primary">Submit</button>
+  <button type="submit" class="btn btn-primary" [disabled]="accountForm.form.invalid">Submit</button>
 </form>

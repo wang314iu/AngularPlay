@@ -10,7 +10,7 @@ export class CreateAccountComponent implements OnInit {
 
   userAccount: UserAccount = {
     email: '',
-    dateofbirth: new Date(),
+    dateofbirth: null,
     firstName: '',
     lastName: '',
     password: '',
