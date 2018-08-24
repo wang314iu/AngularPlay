@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { UserAccount } from '../shared/models/userAccount';
+import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-create-account',
@@ -22,8 +23,13 @@ export class CreateAccountComponent implements OnInit {
   ngOnInit() {
   }
 
-  saveUser(userAccount: UserAccount) {
-    console.log(userAccount);
+  // saveUser(userAccount: UserAccount) {
+  //   console.log(userAccount);
+  // }
+  saveUser(accountForm: NgForm) {
+    console.log(accountForm.value);
+    console.log(accountForm.valid);
+    console.log(accountForm);
   }
 
   get diagnostic() { return JSON.stringify(this.userAccount); }
