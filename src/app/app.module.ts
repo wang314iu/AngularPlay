@@ -24,6 +24,8 @@ import { AdminMoviesComponent } from './movies/admin-movies.component';
 import { AdminOrdersComponent } from './movies/admin-orders.component';
 import { HighlightDirective } from './shared/directives/highlight.directive';
 import { CreateAccountComponent } from './account/create-account.component';
+import { AboutComponent } from './shared/components/about.component';
+import { ContactUsComponent } from './shared/components/contact-us.component';
 
 export function tokenGetter() {
   return localStorage.getItem('token');
@@ -45,7 +47,9 @@ export function tokenGetter() {
     AdminMoviesComponent,
     AdminOrdersComponent,
     HighlightDirective,
-    CreateAccountComponent
+    CreateAccountComponent,
+    AboutComponent,
+    ContactUsComponent
   ],
   imports: [
     BrowserModule,
@@ -63,9 +67,12 @@ export function tokenGetter() {
       { path: 'movies', component: MovieListComponent },
       { path: 'movie/:id', component: MovieComponent },
       { path: 'login', component: LoginComponent },
+      { path: 'about', component: AboutComponent },
+      { path: 'contactus', component: ContactUsComponent },
       { path: 'genre/:id', component: MovieListComponent },
       { path: 'my/movies', component: MyMoviesComponent, canActivate: [AuthenticationGuardService] },
       { path: 'account/create', component: CreateAccountComponent },
+
       {
         path: 'admin/movie/new', component: MovieFormComponent,
         canActivate: [AuthenticationGuardService, AdminAuthenticationGuardService]

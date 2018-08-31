@@ -23,14 +23,22 @@
           <a [routerLink]="['/login']" *ngIf="!authService?.isLoggedIn()" class="nav-link" [routerLinkActive]="['active','font-weight-bold']">Login</a>
         </li>
         <li ngbDropdown class="nav-item dropdown" *ngIf="authService?.isLoggedIn()">
-            <a ngbDropdownToggle class="nav-link dropdown-toggle" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">{{authService?.currentUserFullName}}</a>
-            <div ngbDropdownMenu class="dropdown-menu" aria-labelledby="dropdown01">
-              <a class="dropdown-item" *ngIf="authService?.isLoggedIn()" routerLink="/my/movies">My Movies</a>
-              <a class="dropdown-item" *ngIf="authService?.isAdmin" routerLink="/admin/orders">Manage Movie Orders</a>
-              <a class="dropdown-item" *ngIf="authService?.isAdmin" routerLink="/admin/movies">Manage Movies</a>
-              <a class="dropdown-item" *ngIf="authService?.isLoggedIn()" [routerLink]="['/login']" (click)="authService.logout()">Log Out</a>
-            </div>
-          </li>
+          <a ngbDropdownToggle class="nav-link dropdown-toggle" id="dropdown01" data-toggle="dropdown" aria-haspopup="true"
+            aria-expanded="false">{{authService?.currentUserFullName}}</a>
+          <div ngbDropdownMenu class="dropdown-menu" aria-labelledby="dropdown01">
+            <a class="dropdown-item" *ngIf="authService?.isLoggedIn()" routerLink="/my/movies">My Movies</a>
+            <a class="dropdown-item" *ngIf="authService?.isAdmin" routerLink="/admin/orders">Manage Movie Orders</a>
+            <a class="dropdown-item" *ngIf="authService?.isAdmin" routerLink="/admin/movies">Manage Movies</a>
+            <a class="dropdown-item" *ngIf="authService?.isLoggedIn()" [routerLink]="['/login']" (click)="authService.logout()">Log
+              Out</a>
+          </div>
+        </li>
+        <li class="nav-item">
+          <a [routerLink]="['/about']" class="nav-link" [routerLinkActive]="['active','font-weight-bold']">About Us</a>
+        </li>
+        <li class="nav-item">
+          <a [routerLink]="['/contactus']" class="nav-link" [routerLinkActive]="['active','font-weight-bold']">Contact Us</a>
+        </li>
       </ul>
       <form class="form-inline mt-2 mt-md-0">
         <input class="form-control mr-sm-2" type="text" placeholder="Search Movies" aria-label="Search">
