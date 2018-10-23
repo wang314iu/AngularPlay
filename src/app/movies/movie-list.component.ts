@@ -29,7 +29,8 @@ export class MovieListComponent implements OnInit {
             .subscribe(
               g => {
                 this.movies = g;
-                //  console.log('movie card called');
+                console.log(this.movies);
+                console.log('movie card called');
               }
             );
         } else {
